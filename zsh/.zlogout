@@ -1,0 +1,1 @@
+/home/srakrn/.zprezto/runcoms/zlogout
