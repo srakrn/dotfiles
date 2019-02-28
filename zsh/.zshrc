@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir virtualenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram)
 eval $(thefuck --alias please)
 
