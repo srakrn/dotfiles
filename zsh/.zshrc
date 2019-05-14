@@ -19,3 +19,10 @@ function mkcd(){
     mkdir $1;
     cd $1;
 }
+
+alias weather="curl wttr.in"
+
+function cd_up() {
+  cd $(printf "%0.s../" $(seq 1 $1 ));
+}
+alias 'cd..'='cd_up'
