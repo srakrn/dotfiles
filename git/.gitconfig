@@ -1,0 +1,11 @@
+[user]
+	email = tanersirakorn@gmail.com
+	name = Sirakorn Lamyai
+[color]
+	ui = auto
+[core]
+	editor = vi
+	pager = less
+	excludesfile = ~/.gitignore
+[alias]
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
