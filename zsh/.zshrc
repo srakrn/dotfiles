@@ -13,7 +13,10 @@ fi
 # Customize to your needs...
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram)
-eval $(thefuck --alias please)
+if which thefuck >/dev/null; then
+    eval $(thefuck --alias please)
+fi
+
 
 function mkcd(){
     mkdir $1;
