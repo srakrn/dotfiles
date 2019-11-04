@@ -35,4 +35,5 @@ function cd_up() {
   cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 
+export PATH=~/.local/bin:$PATH
 alias 'cd..'='cd_up'
