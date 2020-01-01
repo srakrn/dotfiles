@@ -18,9 +18,22 @@ if [ -d "${HOME}/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv" # needed by pipenv
 fi
 
+# Theme preference
+SPACESHIP_PROMPT_ORDER=(
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  docker        # Docker section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  line_sep      # Line break
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+
 # Customize to your needs...
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram)
 if which thefuck >/dev/null; then
     eval $(thefuck --alias please)
 fi
