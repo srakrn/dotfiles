@@ -1,0 +1,5 @@
+settings.startToShowEmoji = 0;
+
+settings.blacklist = {
+    "https://github.com": 1
+};
