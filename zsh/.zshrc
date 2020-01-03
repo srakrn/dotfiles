@@ -7,7 +7,7 @@
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Source pyenv
@@ -20,24 +20,20 @@ fi
 
 # Theme preference
 SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  docker        # Docker section
-  venv          # virtualenv section
-  conda         # conda virtualenv section
-  pyenv         # Pyenv section
-  line_sep      # Line break
-  exit_code     # Exit code section
-  char          # Prompt character
+user          # Username section
+dir           # Current directory section
+host          # Hostname section
+git           # Git section (git_branch + git_status)
+docker        # Docker section
+venv          # virtualenv section
+conda         # conda virtualenv section
+pyenv         # Pyenv section
+line_sep      # Line break
+exit_code     # Exit code section
+char          # Prompt character
 )
 
 # Customize to your needs...
-if which thefuck >/dev/null; then
-    eval $(thefuck --alias please)
-fi
-
 function mkcd(){
     mkdir $1;
     cd $1;
@@ -46,8 +42,12 @@ function mkcd(){
 alias weather="curl wttr.in"
 
 function cd_up() {
-  cd $(printf "%0.s../" $(seq 1 $1 ));
+    cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 
 export PATH=~/.local/bin:$PATH
 alias 'cd..'='cd_up'
+
+if which thefuck >/dev/null; then
+    eval $(thefuck --alias please)
+fi
