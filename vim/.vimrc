@@ -34,9 +34,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Powerline configuration
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
 set encoding=utf-8
 set nu
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent

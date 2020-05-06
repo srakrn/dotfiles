@@ -1,14 +1,14 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# source zinit
+source ~/.zinit/bin/zinit.zsh
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# load zinit plugins
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma/history-search-multi-word
+zinit light denysdovhan/spaceship-prompt
+zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh'
+zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/history.zsh'
+zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
 
 # Source pyenv
 if [ -d "${HOME}/.pyenv" ]; then
@@ -20,17 +20,17 @@ fi
 
 # Theme preference
 SPACESHIP_PROMPT_ORDER=(
-user          # Username section
-dir           # Current directory section
-host          # Hostname section
-git           # Git section (git_branch + git_status)
-docker        # Docker section
-venv          # virtualenv section
-conda         # conda virtualenv section
-pyenv         # Pyenv section
-line_sep      # Line break
-exit_code     # Exit code section
-char          # Prompt character
+	user          # Username section
+	dir           # Current directory section
+	host          # Hostname section
+	git           # Git section (git_branch + git_status)
+	docker        # Docker section
+	venv          # virtualenv section
+	conda         # conda virtualenv section
+	pyenv         # Pyenv section
+	line_sep      # Line break
+	exit_code     # Exit code section
+	char          # Prompt character
 )
 
 # Customize to your needs...
