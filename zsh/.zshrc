@@ -9,14 +9,11 @@ fi
 source ~/.zinit/bin/zinit.zsh
 
 # load zinit plugins
-zinit ice depth=1
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/fast-syntax-highlighting
 zinit light zdharma/history-search-multi-word
+zinit light zdharma/fast-syntax-highlighting
 zinit light romkatv/powerlevel10k
 zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh'
-zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/history.zsh'
-zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
+zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/git/alias.zsh'
 
 # Source pyenv
 if [ -d "${HOME}/.pyenv" ]; then
@@ -25,10 +22,6 @@ if [ -d "${HOME}/.pyenv" ]; then
     eval "$(pyenv virtualenv-init -)"
     export PYENV_ROOT="$HOME/.pyenv" # needed by pipenv
 fi
-
-# zsh history search
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
 
 # mkcd function
 function mkcd(){
