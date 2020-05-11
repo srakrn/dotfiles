@@ -26,39 +26,33 @@ if [ -d "${HOME}/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv" # needed by pipenv
 fi
 
-# Theme preference
-SPACESHIP_PROMPT_ORDER=(
-	user          # Username section
-	dir           # Current directory section
-	host          # Hostname section
-	git           # Git section (git_branch + git_status)
-	docker        # Docker section
-	venv          # virtualenv section
-	conda         # conda virtualenv section
-	pyenv         # Pyenv section
-	line_sep      # Line break
-	exit_code     # Exit code section
-	char          # Prompt character
-)
+# zsh history search
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
 
-# Customize to your needs...
+# mkcd function
 function mkcd(){
     mkdir $1;
     cd $1;
 }
 
+# weather
 alias weather="curl wttr.in"
 
+# cd-up function
 function cd_up() {
     cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 
-export PATH=~/.local/bin:$PATH
 alias 'cd..'='cd_up'
 
+# fuck/please
 if which thefuck >/dev/null; then
     eval $(thefuck --alias please)
 fi
+
+# adding ~/.local to $PATH 
+export PATH=~/.local/bin:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
