@@ -12,8 +12,8 @@ source ~/.zinit/bin/zinit.zsh
 zinit light zdharma/history-search-multi-word
 zinit light zdharma/fast-syntax-highlighting
 zinit light romkatv/powerlevel10k
+zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh'
 zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh'
-zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/git/alias.zsh'
 
 # Source pyenv
 if [ -d "${HOME}/.pyenv" ]; then
