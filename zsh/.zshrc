@@ -1,3 +1,6 @@
+# Colour settings
+TERM=xterm-256color
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,11 +12,12 @@ fi
 source ~/.zinit/bin/zinit.zsh
 
 # load zinit plugins
-zinit light zdharma/history-search-multi-word
 zinit light zdharma/fast-syntax-highlighting
 zinit light romkatv/powerlevel10k
+zinit light zdharma/history-search-multi-word
 zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh'
 zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh'
+zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/pipenv/pipenv.plugin.zsh'
 
 # Source pyenv
 if [ -d "${HOME}/.pyenv" ]; then
@@ -52,7 +56,6 @@ HISTDUP=erase
 setopt appendhistory     
 setopt sharehistory      
 setopt incappendhistory  
-
 
 # adding ~/.local to $PATH 
 export PATH=~/.local/bin:$PATH
