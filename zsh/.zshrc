@@ -15,6 +15,7 @@ source ~/.zinit/bin/zinit.zsh
 zinit light zdharma/fast-syntax-highlighting
 zinit light romkatv/powerlevel10k
 zinit light zdharma/history-search-multi-word
+zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/git.zsh'
 zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh'
 zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh'
 zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/pipenv/pipenv.plugin.zsh'
