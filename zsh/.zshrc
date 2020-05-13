@@ -44,6 +44,16 @@ if which thefuck >/dev/null; then
     eval $(thefuck --alias please)
 fi
 
+# Preserving history
+HISTSIZE=5000            
+HISTFILE=~/.zsh_history  
+SAVEHIST=5000            
+HISTDUP=erase            
+setopt appendhistory     
+setopt sharehistory      
+setopt incappendhistory  
+
+
 # adding ~/.local to $PATH 
 export PATH=~/.local/bin:$PATH
 
