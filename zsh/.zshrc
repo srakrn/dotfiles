@@ -8,17 +8,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# source zinit
-source ~/.zinit/bin/zinit.zsh
+# source antigen
+source ~/antigen.zsh
 
-# load zinit plugins
-zinit light zdharma/fast-syntax-highlighting
-zinit light romkatv/powerlevel10k
-zinit light zdharma/history-search-multi-word
-zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/git.zsh'
-zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh'
-zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh'
-zinit snippet 'https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/pipenv/pipenv.plugin.zsh'
+# load plugins
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle pip
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen theme romkatv/powerlevel10k
+
+# antigen done
+antigen apply
 
 # Source pyenv
 if [ -d "${HOME}/.pyenv" ]; then
