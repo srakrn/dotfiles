@@ -15,6 +15,8 @@ source ~/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle pip
+antigen bundle taskwarrior
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme romkatv/powerlevel10k
 
@@ -35,6 +37,9 @@ function mkcd(){
     cd $1;
 }
 
+# Vim FTW
+export EDITOR="vim"
+
 # weather
 alias weather="curl wttr.in"
 
@@ -46,8 +51,13 @@ function cd_up() {
 alias 'cd..'='cd_up'
 
 # fuck/please
-if which thefuck >/dev/null; then
+if type thefuck > /dev/null; then
     eval $(thefuck --alias please)
+fi
+
+# bat
+if type bat > /dev/null; then
+    alias cat="bat"
 fi
 
 # Preserving history
@@ -64,3 +74,4 @@ export PATH=~/.local/bin:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
