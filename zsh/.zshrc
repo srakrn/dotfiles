@@ -66,11 +66,17 @@ if type thefuck > /dev/null; then
     eval $(thefuck --alias please)
 fi
 
+# gits
+alias 'gpp'='git pull && git push'
+
+# for WSL
+if grep -q Microsoft /proc/version; then
+    alias 'xp'='explorer.exe'
+fi
+
 # bat
-if type bat > /dev/null; then
-    alias cat="bat"
-elif type batcat > /dev/null; then
-    alias cat="batcat"
+if type batcat > /dev/null; then
+    alias bat="batcat"
 fi
 
 # Preserving history
