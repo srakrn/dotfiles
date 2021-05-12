@@ -37,14 +37,6 @@ export PATH=~/.local/bin:$PATH
 # Scripts and Custom Fnctns  #
 ##############################
 
-# Source pyenv
-if [ -d "${HOME}/.pyenv" ]; then
-    export PATH="${HOME}/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-    export PYENV_ROOT="$HOME/.pyenv" # needed by pipenv
-fi
-
 # mkcd function
 function mkcd(){
     mkdir $1;
@@ -78,6 +70,29 @@ fi
 if type batcat > /dev/null; then
     alias bat="batcat"
 fi
+
+##############################
+# Sourcing things            #
+##############################
+
+# Source miniconda
+if [ -d "${HOME}/miniconda3" ]; then
+    source "${HOME}/miniconda3/etc/profile.d/conda.sh"
+    if [[ -z ${CONDA_PREFIX+x} ]]; then
+        export PATH="${HOME}/conda/bin:$PATH"
+    fi
+fi
+
+# Source pyenv
+if [ -d "${HOME}/.pyenv" ]; then
+    export PATH="${HOME}/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+    export PYENV_ROOT="$HOME/.pyenv" # needed by pipenv
+fi
+
+# Travis Gem
+[ ! -s /home/srakrn/.travis/travis.sh ] || source /home/srakrn/.travis/travis.sh
 
 # Preserving history
 HISTSIZE=5000            
