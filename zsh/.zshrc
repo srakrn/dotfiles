@@ -15,7 +15,6 @@ source ~/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle pip
-antigen bundle taskwarrior
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme romkatv/powerlevel10k
 antigen bundle zsh-users/zsh-completions
@@ -93,6 +92,11 @@ fi
 
 # Travis Gem
 [ ! -s /home/srakrn/.travis/travis.sh ] || source /home/srakrn/.travis/travis.sh
+
+# nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Preserving history
 HISTSIZE=5000            
