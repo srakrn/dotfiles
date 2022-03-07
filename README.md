@@ -6,7 +6,7 @@ This is Sirakorn's [dotfiles](https://dotfiles.github.io/). Don't know what Dotf
 
 There are several manual requirements, as I'm too lazy to create a script to do this by hands. I don't set up new machines that often.
 
-* Install zsh along with [Prezto](https://github.com/sorin-ionescu/prezto)
+* Install zsh along with [Antigen](https://github.com/zsh-users/antigen).
     * Skip the part of symlinking Prezto configurations.
 * Install Vim (not only Vi) along with [Vundle](https://github.com/VundleVim/Vundle.vim)
 
