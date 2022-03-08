@@ -1,30 +1,9 @@
-# Colour settings
-TERM=xterm-256color
-
-# bash autocompletion
-autoload bashcompinit
-
-##############################
-# Antigen                    #
-##############################
-
-# source antigen
-source ~/antigen.zsh
-
-# load plugins
-antigen use oh-my-zsh
-antigen bundle git
-antigen bundle pip
-antigen bundle aws
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme romkatv/powerlevel10k
-antigen bundle zsh-users/zsh-completions
-
-# antigen done
-antigen apply
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 ##############################
 # Exports                    #
@@ -32,6 +11,21 @@ antigen apply
 
 export EDITOR="vim"
 export PATH=~/.local/bin:$PATH
+
+##############################
+# FZF                        #
+##############################
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
 
 ##############################
 # Scripts and Custom Fnctns  #
@@ -108,4 +102,17 @@ setopt appendhistory
 setopt sharehistory      
 setopt incappendhistory  
 
+
+##############################
+# OMZ                        #
+##############################
+
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(git python pyenv aws fzf-tab)
+source $ZSH/oh-my-zsh.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f /etc/bash_completion.d/azure-cli ]] || source /etc/bash_completion.d/azure-cli
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
