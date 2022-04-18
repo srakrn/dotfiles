@@ -22,8 +22,6 @@ zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:descriptions' format '[%d]'
 # set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
@@ -56,7 +54,7 @@ fi
 alias 'gpp'='git pull && git push'
 
 # for WSL
-if grep -q Microsoft /proc/version; then
+if grep -qi microsoft /proc/version; then
     alias 'xp'='explorer.exe'
 fi
 
@@ -116,3 +114,6 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ ! -f /etc/bash_completion.d/azure-cli ]] || source /etc/bash_completion.d/azure-cli
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
