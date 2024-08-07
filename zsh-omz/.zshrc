@@ -10,7 +10,7 @@ fi
 ##############################
 
 export EDITOR="vim"
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/bin:$PATH
 
 ##############################
 # FZF                        #
@@ -86,6 +86,13 @@ fi
 # Travis Gem
 [ ! -s /home/srakrn/.travis/travis.sh ] || source /home/srakrn/.travis/travis.sh
 
+# Go
+if [ -d "/usr/local/go" ]; then
+    export PATH=$PATH:/usr/local/go/bin
+    export GOPATH="$HOME/go"
+    PATH="$PATH:$GOPATH/bin"
+fi
+
 # nvm
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -107,7 +114,7 @@ setopt incappendhistory
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git python pyenv aws fzf-tab taskwarrior asdf)
+plugins=(git python pipenv pyenv aws fzf-tab taskwarrior asdf)
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -116,7 +123,6 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/zsh-omz/.p10k.zsh.
 [[ ! -f ~/dotfiles/zsh-omz/.p10k.zsh ]] || source ~/dotfiles/zsh-omz/.p10k.zsh
